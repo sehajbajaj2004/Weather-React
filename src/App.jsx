@@ -134,4 +134,6 @@ function App() {
   );
 }
 
+//added a note
+
 export default App;
