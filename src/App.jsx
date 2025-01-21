@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 function App() {
-  const [city, setCity] = useState("Delhi");
+  const [city, setCity] = useState("Mumbai");
   const [weather, setWeather] = useState(null);
-  const [theme, setTheme] = useState("light"); // State for theme
+  const [theme, setTheme] = useState("dark");
 
   const currentDate = new Date();
   const months = [
@@ -24,13 +24,14 @@ function App() {
       );
 
       if (!response.ok) {
-        throw new Error("City not found"); // Error for invalid response
+        throw new Error("City not found");
       }
 
       const data = await response.json();
+      console.log(data); // Log API response for debugging
       setWeather(data);
     } catch (error) {
-      alert("Error: Please enter a valid city."); // Alert on error
+      alert("Error: Please enter a valid city.");
       console.error(error);
     }
   };
